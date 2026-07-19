@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="GST Calculator & Invoice System by Thibakkathirravan H. Calculate CGST, SGST and IGST with multiple GST rates.">
+
+  <title>GST Calculator & Invoice System</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    GST<span>Calc.</span>
+  </div>
+
+  <nav>
+    <a href="#calculator">Calculator</a>
+    <a href="#features">Features</a>
+    <a href="#about">About</a>
+  </nav>
+
+  <a class="github-btn"
+     href="https://github.com/THIBAK840/GST-Calculator-Python"
+     target="_blank"
+     rel="noopener">
+    GitHub ↗
+  </a>
+</header>
+
+
+<main>
+
+  <!-- HERO SECTION -->
+
+  <section class="hero">
+
+    <div class="badge">
+      PYTHON PROJECT • WEB VERSION
+    </div>
+
+    <h1>
+      GST Calculator &
+      <span>Invoice System</span>
+    </h1>
+
+    <p>
+      A simple GST calculation tool for Indian taxation.
+      Calculate CGST, SGST and IGST instantly using standard GST rates.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="#calculator" class="btn primary">
+        Calculate GST
+      </a>
+
+      <a href="https://github.com/THIBAK840/GST-Calculator-Python"
+         target="_blank"
+         rel="noopener"
+         class="btn secondary">
+        View Source Code ↗
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- GST CALCULATOR -->
+
+  <section id="calculator" class="calculator-section">
+
+    <div class="section-label">
+      GST CALCULATOR
+    </div>
+
+    <h2>Calculate GST instantly</h2>
+
+    <p class="section-description">
+      Enter the taxable amount, choose the GST rate and select
+      whether the transaction is intra-state or inter-state.
+    </p>
+
+
+    <div class="calculator-card">
+
+      <div class="form-group">
+
+        <label for="amount">
+          Taxable Amount (₹)
+        </label>
+
+        <input
+          type="number"
+          id="amount"
+          placeholder="Enter taxable amount"
+          min="0"
+          step="0.01">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="gstRate">
+          GST Rate
+        </label>
+
+        <select id="gstRate">
+
+          <option value="5">5%</option>
+
+          <option value="12">
+            12%
+          </option>
+
+          <option value="18" selected>
+            18%
+          </option>
+
+          <option value="28">
+            28%
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="taxType">
+          Transaction Type
+        </label>
+
+        <select id="taxType">
+
+          <option value="intra">
+            Intra-State — CGST + SGST
+          </option>
+
+          <option value="inter">
+            Inter-State — IGST
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <button
+        class="calculate-btn"
+        onclick="calculateGST()">
+
+        Calculate GST
+
+      </button>
+
+
+      <!-- RESULTS -->
+
+      <div
+        id="result"
+        class="result-card">
+
+        <div class="result-row">
+
+          <span>
+            Taxable Amount
+          </span>
+
+          <strong id="taxableResult">
+            ₹0.00
+          </strong>
+
+        </div>
+
+
+        <div
+          class="result-row"
+          id="cgstRow">
+
+          <span>
+            CGST
+          </span>
+
+          <strong id="cgstResult">
+            ₹0.00
+          </strong>
+
+        </div>
+
+
+        <div
+          class="result-row"
+          id="sgstRow">
+
+          <span>
+            SGST
+          </span>
+
+          <strong id="sgstResult">
+            ₹0.00
+          </strong>
+
+        </div>
+
+
+        <div
+          class="result-row"
+          id="igstRow"
+          style="display:none;">
+
+          <span>
+            IGST
+          </span>
+
+          <strong id="igstResult">
+            ₹0.00
+          </strong>
+
+        </div>
+
+
+        <div class="result-row">
+
+          <span>
+            Total GST
+          </span>
+
+          <strong id="gstResult">
+            ₹0.00
+          </strong>
+
+        </div>
+
+
+        <div class="result-row total">
+
+          <span>
+            Grand Total
+          </span>
+
+          <strong id="totalResult">
+            ₹0.00
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+
+  <section
+    id="features"
+    class="features-section">
+
+    <div class="section-label">
+      FEATURES
+    </div>
+
+    <h2>
+      Built for practical GST calculations
+    </h2>
+
+
+    <div class="feature-grid">
+
+
+      <article>
+
+        <span>
+          01
+        </span>
+
+        <h3>
+          Multiple GST Rates
+        </h3>
+
+        <p>
+          Supports standard GST slabs including
+          5%, 12%, 18% and 28%.
+        </p>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          02
+        </span>
+
+        <h3>
+          CGST & SGST
+        </h3>
+
+        <p>
+          Automatically splits GST equally into
+          CGST and SGST for intra-state transactions.
+        </p>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          03
+        </span>
+
+        <h3>
+          IGST Calculation
+        </h3>
+
+        <p>
+          Calculates IGST automatically for
+          inter-state transactions.
+        </p>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          04
+        </span>
+
+        <h3>
+          Instant Results
+        </h3>
+
+        <p>
+          Displays taxable value, GST components,
+          total GST and final invoice value instantly.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT PROJECT -->
+
+  <section
+    id="about"
+    class="about-section">
+
+    <div class="section-label">
+      ABOUT THE PROJECT
+    </div>
+
+    <h2>
+      Commerce meets programming.
+    </h2>
+
+    <p>
+
+      This project was developed by
+      <strong>Thibakkathirravan H</strong>
+      to combine practical knowledge of GST and taxation
+      with Python programming and web development.
+
+      The original repository includes a command-line
+      GST calculator, a Tkinter GUI version and a
+      multi-item GST invoice calculator.
+
+    </p>
+
+
+    <div class="tech-stack">
+
+      <span>
+        Python
+      </span>
+
+      <span>
+        HTML
+      </span>
+
+      <span>
+        CSS
+      </span>
+
+      <span>
+        JavaScript
+      </span>
+
+      <span>
+        GST
+      </span>
+
+      <span>
+        Taxation
+      </span>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <p>
+    © 2026 Thibakkathirravan H
+  </p>
+
+  <p>
+    GST Calculator & Invoice System
+  </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
