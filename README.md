@@ -1,4 +1,6 @@
-# GST Calculator & Invoice System – Python
+## Project Preview
+
+![GST Invoice Calculator](gst-calculator-screenshot.png)# GST Calculator & Invoice System – Python
 
 A Python-based GST Calculator and Invoice System developed to calculate GST for Indian transactions.
 
